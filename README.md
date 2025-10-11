@@ -1,4 +1,4 @@
-# Win_Wi‑Fi_Analyzer 
+# Windows Wi‑Fi Analyzer 
 Wifi report for users to run and send to Support team analyst. 
 
 ## Command‑Line (CLI)
