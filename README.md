@@ -39,7 +39,7 @@ Examples (Windows PowerShell)
 ```
 
 Notes
-- On Windows, `--admin-scan` is ignored (macOS‑only). A console is attached automatically when `--cli` is used so output appears in the terminal.
+- On Windows, `--admin-scan` is ignored. A console is attached automatically when `--cli` is used so output appears in the terminal.
 - Exit codes are non‑zero on error, suitable for scripting.
 
 
@@ -51,5 +51,5 @@ Notes
 ## App Info & Icon
 - Name: Wi‑Fi Analyzer
 - Version: 2.0
-- Publisher: Ayala Solutions
+- Publisher: Jesus Ayala from: Ayala Solutions
 - Website: https://github.com/hov172
