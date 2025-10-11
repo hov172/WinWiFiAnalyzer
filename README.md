@@ -7,6 +7,10 @@ I create a PS (Powershell Script) and a Macos App that does something similar)
 - Powershell Script: https://github.com/hov172/PS_WI-FI_Analyzer
 - Macos: https://github.com/hov172/WifDiagReport
 
+## Screenshot
+<img width="1580" height="849" alt="WindowsWiFiTester" src="https://github.com/user-attachments/assets/fd098dc7-7ab6-4287-97da-9971558dd55a" />
+
+
 ## Command‑Line (CLI)
 Wi‑Fi Analyzer also works headless from the command line on macOS, Windows, and Linux. This is intended for IT automation and scripted diagnostics.
 
