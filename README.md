@@ -4,7 +4,7 @@ Wi‑Fi Analyzer is a cross-platform desktop application for examining the local
 wireless environment and producing support-ready reports for IT. It is built
 with Avalonia and .NET 8.
 
-Version: **2.4.0**
+Version: **2.5.1**
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -172,6 +172,7 @@ same reports, so an exported PDF does not depend on which one produced it.
 dotnet run -- --cli
 dotnet run -- --cli --pdf report.pdf --csv networks.csv --quiet
 dotnet run -- --cli --redacted --hide-ssids --pdf redacted.pdf
+dotnet run -- --cli --match lobby --band 5 --security wpa3 --csv filtered.csv
 ```
 
 The published executable takes the same arguments
@@ -188,6 +189,9 @@ session without `--cli`.
 | `--speed-test` | Measure throughput, latency, jitter, and loss |
 | `--deep-scan`, `--no-deep-scan` | Override the configured scan depth |
 | `--name`, `--id`, `--email`, `--building`, `--room` | Requestor detail for the report header |
+| `--match <text>` | Only list networks whose SSID or BSSID contains the text (analysis sections still reflect the full scan) |
+| `--band <2.4\|5\|6>` | Only list networks on the band |
+| `--security <open\|wpa2\|wpa3>` | Only list networks using the security family |
 | `--help` | List every option |
 
 Two differences from the window are deliberate. The speed test is opt-in, so a
@@ -237,10 +241,10 @@ dotnet publish WifiAnalyzer.csproj \
   /p:IncludeAllContentForSelfExtract=true
 ```
 
-The verified 2.4.0 deliverables are:
+The verified 2.5.1 deliverables are:
 
-- `dist/WifiAnalyzer-2.4.0-win-x64-self-contained.exe`
-- `dist/WifiAnalyzer-2.4.0-win-x64-self-contained.zip`
+- `dist/WifiAnalyzer-2.5.1-win-x64-self-contained.exe`
+- `dist/WifiAnalyzer-2.5.1-win-x64-self-contained.zip`
 
 Unsigned Windows builds can trigger Microsoft Defender SmartScreen. Configure a
 trusted code-signing certificate for public distribution.
@@ -282,14 +286,14 @@ The packager signs every Mach-O runtime/helper, applies hardened-runtime .NET
 entitlements, signs the application, submits it to Apple, staples the ticket,
 and validates the final product-named bundle.
 
-The packager produces:
+The packager produces `dist/Wi‑Fi Analyzer.app`; the release archive
+(`dist/WifiAnalyzer-<version>-osx-arm64.zip`) is created from that bundle with
+`ditto`. When notarization credentials are provided, the packager also emits a
+`-signed-notarized` archive.
 
-- `dist/WifiAnalyzer-2.4.0-osx-arm64-signed-notarized.zip`
-
-The most recent macOS bundle verified on real hardware was 2.3.0. The 2.3.1 and
-2.4.0 changes have not been re-verified on macOS; 2.4.0 adds command-line
-exports, which share the platform scanner but have only been exercised on
-Windows.
+The most recent macOS bundle verified on real hardware is 2.5.0: scans,
+report exports, the beacon information-element capabilities, and the filter
+row were exercised on Apple silicon (macOS 26.2).
 
 ## All runtime targets
 
@@ -317,9 +321,9 @@ Supported runtime identifiers are `win-x64`, `win-arm64`, `osx-x64`,
 - `.github/workflows/release.yml` builds all runtime targets and Windows
   installers for a version tag that exactly matches `WifiAnalyzer.csproj`.
 
-For version `2.4.0`, the release tag is `v2.4.0`.
+For version `2.5.1`, the release tag is `v2.5.1`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the completed 2.4.0 changes.
+See [CHANGELOG.md](CHANGELOG.md) for the completed 2.5.1 changes.
 
 ## Product identity
 
