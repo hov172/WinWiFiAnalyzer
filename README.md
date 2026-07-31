@@ -22,6 +22,10 @@ Version: **2.5.1**
   computer model, operating-system version/build, architecture, hostname, IP
   address, and Wi-Fi interface address.
 
+- Powershell Script: https://github.com/hov172/PS_WI-FI_Analyzer
+- Macos: [https://github.com/hov172/WinWiFiAnalyzer](https://github.com/hov172/WifDiagReport)
+- IOS Beta Test: https://testflight.apple.com/join/hDPGsHzd
+
 ### Link and radio engineering detail
 
 - Reports the negotiated PHY transmit/receive link rate, distinct from
