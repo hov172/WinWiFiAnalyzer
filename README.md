@@ -26,6 +26,8 @@ Version: **2.5.1**
 - Macos: [https://github.com/hov172/WinWiFiAnalyzer](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer.dmg)
 - IOS Beta Test: https://testflight.apple.com/join/hDPGsHzd
 
+- Macos WifiDiag with Coverage Map: (https://github.com/hov172/WifDiagReport)
+
 ### Link and radio engineering detail
 
 - Reports the negotiated PHY transmit/receive link rate, distinct from
