@@ -23,7 +23,7 @@ Version: **2.5.1**
   address, and Wi-Fi interface address.
 
 - Powershell Script: https://github.com/hov172/PS_WI-FI_Analyzer
-- Macos: [https://github.com/hov172/WinWiFiAnalyzer](https://github.com/hov172/WifDiagReport)
+- Macos: [https://github.com/hov172/WinWiFiAnalyzer](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer.dmg)
 - IOS Beta Test: https://testflight.apple.com/join/hDPGsHzd
 
 ### Link and radio engineering detail
