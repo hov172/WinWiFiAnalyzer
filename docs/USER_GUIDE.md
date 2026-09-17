@@ -12,9 +12,12 @@ Select **Scan networks**. The application displays progress in a dedicated
 status panel below the scan options. **Cancel** stops the active operation.
 
 Deep scan requests the fullest network identifiers the operating system allows.
-On macOS, allow Wi‑Fi Analyzer under **System Settings → Privacy & Security →
-Location Services**. Without that permission, macOS can withhold SSID and BSSID
-values even while channel and signal measurements remain available.
+On macOS, Wi‑Fi Analyzer asks for Location Services permission the first time
+its window opens. If that request was declined, allow Wi‑Fi Analyzer under
+**System Settings → Privacy & Security → Location Services** and scan again.
+Without that permission, macOS withholds SSID and BSSID values even while
+channel and signal measurements remain available. A hidden network shows an
+empty name with a real BSSID; that is not a permissions problem.
 
 ## Main Networks workspace
 
@@ -202,8 +205,10 @@ An unsigned build may show a SmartScreen warning.
 ### macOS
 
 The Dock, application menu, Quit item, window title, and About item use
-**Wi‑Fi Analyzer**. Nearby network names require Location Services permission.
-The signed release ZIP contains a self-contained, notarized app bundle.
+**Wi‑Fi Analyzer**. Nearby network names require Location Services permission,
+which the app requests on first launch. The release ships as a notarized DMG
+(drag to Applications) and as a zipped, notarized app bundle, for Apple
+silicon and Intel.
 
 macOS is the only desktop platform that publishes a noise-floor measurement, so
 SNR is a real reading there rather than an estimate.

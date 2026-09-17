@@ -6,7 +6,7 @@ Wi-Fi Analyzer is a cross-platform desktop application designed to examine the l
 
 Built with **Avalonia and .NET 8**, the application provides a consistent diagnostic workflow across Windows, macOS, and Linux while using the best Wi-Fi information available from each operating system.
 
-**Current Version: 2.5.1**
+**Current Version: 2.5.3**
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -56,7 +56,7 @@ Wi-Fi Analyzer is part of a larger collection of Wi-Fi diagnostic and troublesho
 | ------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | 🪟 **Windows / macOS / Linux** | Wi-Fi Analyzer                      | This Project                                                                                                       |
 | 🖥️ **PowerShell**             | PS Wi-Fi Analyzer                   | [GitHub](https://github.com/hov172/PS_WI-FI_Analyzer)                                                              |
-| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Download DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer.dmg) |
+| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Apple silicon DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer.dmg) · [Intel DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer-Intel.dmg) |
 | 📱 **iOS / iPadOS**            | Wi-Fi Analyzer Beta                 | [Apple TestFlight](https://testflight.apple.com/join/hDPGsHzd)                                                     |
 | 🍎 **macOS Advanced**          | WiFi Diag Report + Coverage Mapping | [GitHub](https://github.com/hov172/WifDiagReport)                                                                  |
 
@@ -674,11 +674,11 @@ dotnet publish WifiAnalyzer.csproj \
   /p:IncludeAllContentForSelfExtract=true
 ```
 
-### Version 2.5.1 Windows Deliverables
+### Version 2.5.3 Windows Deliverables
 
 ```text
-dist/WifiAnalyzer-2.5.1-win-x64-self-contained.exe
-dist/WifiAnalyzer-2.5.1-win-x64-self-contained.zip
+dist/WifiAnalyzer-2.5.3-win-x64-self-contained.exe
+dist/WifiAnalyzer-2.5.3-win-x64-self-contained.zip
 ```
 
 Unsigned Windows builds may trigger Microsoft Defender SmartScreen.
@@ -742,7 +742,7 @@ dist/Wi-Fi Analyzer.app
 dist/WifiAnalyzer-<version>-osx-arm64.zip
 ```
 
-The most recently documented real-hardware macOS validation is **2.5.0 on Apple silicon running macOS 26.2**.
+The most recently documented real-hardware macOS validation is **2.5.3 on Apple silicon running macOS 26.2**: Location Services grant, full SSID and BSSID identifiers, hidden-network handling, scans, and report exports.
 
 ---
 
@@ -799,17 +799,17 @@ Produces an ARM64 Developer ID-signed and notarized beta from `main` using a pro
 
 Builds supported runtime targets and Windows installers when a version tag exactly matches the version declared in `WifiAnalyzer.csproj`.
 
-For version **2.5.1**:
+For version **2.5.3**:
 Open Wifi will lower overall score please base the report on the other numbers.
 ```text
-v2.5.1
+v2.5.3
 ```
 
 See:
 
 `CHANGELOG.md`
 
-for the completed 2.5.1 changes.
+for the completed 2.5.3 changes.
 
 ---
 
@@ -818,7 +818,7 @@ for the completed 2.5.1 changes.
 |               |                       |
 | ------------- | --------------------- |
 | **Product**   | Wi-Fi Analyzer        |
-| **Version**   | 2.5.1                 |
+| **Version**   | 2.5.3                 |
 | **Publisher** | Ayala Solutions       |
 | **Framework** | Avalonia / .NET 8     |
 | **Platforms** | Windows, macOS, Linux |
