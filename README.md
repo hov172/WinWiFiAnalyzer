@@ -56,7 +56,7 @@ Wi-Fi Analyzer is part of a larger collection of Wi-Fi diagnostic and troublesho
 | ------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | 🪟 **Windows / macOS / Linux** | Wi-Fi Analyzer                      | This Project                                                                                                       |
 | 🖥️ **PowerShell**             | PS Wi-Fi Analyzer                   | [GitHub](https://github.com/hov172/PS_WI-FI_Analyzer)                                                              |
-| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Apple silicon DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer.dmg) · [Intel DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/download/Windows_Wifi_Report/Wi.Fi.Analyzer-Intel.dmg) |
+| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Apple silicon DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer.dmg) · [Intel DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) |
 | 📱 **iOS / iPadOS**            | Wi-Fi Analyzer Beta                 | [Apple TestFlight](https://testflight.apple.com/join/hDPGsHzd)                                                     |
 | 🍎 **macOS Advanced**          | WiFi Diag Report + Coverage Mapping | [GitHub](https://github.com/hov172/WifDiagReport)                                                                  |
 
