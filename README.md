@@ -6,7 +6,7 @@ Wi-Fi Analyzer is a cross-platform desktop application designed to examine the l
 
 Built with **Avalonia and .NET 8**, the application provides a consistent diagnostic workflow across Windows, macOS, and Linux while using the best Wi-Fi information available from each operating system.
 
-**Current Version: 2.5.3**
+**Current Version: 2.6.0**
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -95,6 +95,39 @@ Collected information can include:
 * Roaming capabilities
 
 The application identifies the currently connected access point when the operating system provides enough information to determine its BSSID.
+
+---
+
+## 🩺 Diagnostic Summary
+
+Every scan names the likely issue in plain language, with one recommended next step, and a technician detail with the supporting and positive findings:
+
+* Weak Wi-Fi association
+* Packet loss
+* High latency or high jitter
+* Congested channel
+* Possible sticky-client behavior
+* No obvious problem
+
+An open network is noted as an extra finding, never as the likely issue. Redacted reports keep only the plain-language summary; it never names the network or an access point.
+
+---
+
+## 📍 Access Points and Directed Selection
+
+The **Access points** tab ranks every radio serving the connected network with a 0–100 score and the reasons behind it. Statuses are CURRENT, RECOMMENDED, AVAILABLE, WEAK and INCOMPATIBLE. A radio is recommended only when it is at least 10 dB stronger, uses the same security mode, its channel is under 60 % airtime utilization, and its score beats the current access point. A stronger radio on a busy channel is shown as available, not recommended. Metrics the platform did not report are unknown, never zero.
+
+**Switch to this AP** asks the operating system for that one access point and then verifies what the adapter actually did: connected and verified, connected to a different access point, failed with the OS error, or timed out. Signal, PHY rate and latency before and after are shown as observations, not verdicts.
+
+| Platform | Directed selection |
+| --- | --- |
+| Windows | Native Wi-Fi API with the saved profile of the current network and one desired BSSID; the driver may still choose another |
+| macOS | CoreWLAN, open networks only, because the app holds no credentials for secured ones; Location Services needed to confirm the BSSID |
+| Linux | Not supported; manual steps are shown |
+
+A directed request is a preference the driver may override. It is never a permanent lock.
+
+**Monitor roaming** records every access-point change under the same network with the signal before and after, up to 100 events. The OS never reports why it roamed; only changes the app requested are attributed.
 
 ---
 
@@ -232,7 +265,7 @@ The score evaluates multiple diagnostic areas:
 * 📶 Signal
 * 🚀 Speed
 * 📡 Congestion
-* 🔐 Security
+* 🔐 Wireless security
 * 🛡️ Reliability
 
 The application shows the measurement behind each scoring axis.
@@ -338,10 +371,11 @@ The report identifies the source so a derived value is never presented as though
 5. Examine per-band congestion.
 6. Review channel recommendations.
 7. Examine the connected AP.
-8. Review the connection-health score.
-9. Open **Report** for detailed diagnostics.
-10. Choose the appropriate privacy level.
-11. Export the report.
+8. Open **Access points** to see the ranked radios, try **Switch to this AP** where supported, or **Monitor roaming**.
+9. Review the diagnostic summary and the connection-health score.
+10. Open **Report** for detailed diagnostics.
+11. Choose the appropriate privacy level.
+12. Export the report.
 
 ---
 
@@ -377,6 +411,7 @@ Provides a high-level summary of:
 * Recommendations
 * Scan scope
 * Privacy mode
+* Diagnostic summary
 * Connection health
 * Channel recommendations
 * Recommendation confidence
@@ -468,6 +503,7 @@ Redacted exports:
 * Mask Wi-Fi interface addresses
 * Omit saved contact information
 * Can hide SSIDs
+* Hash the BSSIDs in the Directed AP test and Roaming events with the same aliases, scrub OS error text, and drop the technician diagnosis
 
 Computer model, operating-system version, and architecture remain because they can be necessary for compatibility diagnosis.
 
@@ -674,11 +710,11 @@ dotnet publish WifiAnalyzer.csproj \
   /p:IncludeAllContentForSelfExtract=true
 ```
 
-### Version 2.5.3 Windows Deliverables
+### Version 2.6.0 Windows Deliverables
 
 ```text
-dist/WifiAnalyzer-2.5.3-win-x64-self-contained.exe
-dist/WifiAnalyzer-2.5.3-win-x64-self-contained.zip
+dist/WifiAnalyzer-2.6.0-win-x64-self-contained.exe
+dist/WifiAnalyzer-2.6.0-win-x64-self-contained.zip
 ```
 
 Unsigned Windows builds may trigger Microsoft Defender SmartScreen.
@@ -742,7 +778,7 @@ dist/Wi-Fi Analyzer.app
 dist/WifiAnalyzer-<version>-osx-arm64.zip
 ```
 
-The most recently documented real-hardware macOS validation is **2.5.3 on Apple silicon running macOS 26.2**: Location Services grant, full SSID and BSSID identifiers, hidden-network handling, scans, and report exports.
+The most recently documented real-hardware macOS validation is **2.6.0 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
 ---
 
