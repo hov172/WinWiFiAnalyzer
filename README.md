@@ -54,9 +54,9 @@ Wi-Fi Analyzer is part of a larger collection of Wi-Fi diagnostic and troublesho
 
 | Platform                       | Project                             | Access                                                                                                             |
 | ------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| 🪟 **Windows / macOS / Linux** | Wi-Fi Analyzer                      | This Project                                                                                                       |
+| 🪟 **Windows / macOS / Linux** | Wi-Fi Analyzer                      | [Windows x64 EXE](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.exe) · [Linux x64](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-x64.tar.gz) · [Linux ARM64](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-arm64.tar.gz) |
 | 🖥️ **PowerShell**             | PS Wi-Fi Analyzer                   | [GitHub](https://github.com/hov172/PS_WI-FI_Analyzer)                                                              |
-| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Apple silicon DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer.dmg) · [Intel DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) |
+| 🍎 **macOS**                   | Wi-Fi Analyzer — Windows-style UI   | [Apple silicon DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.dmg) · [Intel DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) |
 | 📱 **iOS / iPadOS**            | Wi-Fi Analyzer Beta                 | [Apple TestFlight](https://testflight.apple.com/join/hDPGsHzd)                                                     |
 | 🍎 **macOS Advanced**          | WiFi Diag Report + Coverage Mapping | [GitHub](https://github.com/hov172/WifDiagReport)                                                                  |
 
@@ -715,6 +715,8 @@ dotnet publish WifiAnalyzer.csproj \
 ```text
 dist/WifiAnalyzer-2.6.0-win-x64-self-contained.exe
 dist/WifiAnalyzer-2.6.0-win-x64-self-contained.zip
+
+Published on the release page as WifiAnalyzer-Windows-x64.exe and WifiAnalyzer-Windows-x64.zip.
 ```
 
 Unsigned Windows builds may trigger Microsoft Defender SmartScreen.
