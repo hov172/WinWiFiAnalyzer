@@ -540,25 +540,25 @@ The CLI performs the same multi-pass Wi-Fi scan used by the graphical applicatio
 ### Basic Scan
 
 ```bash
-dotnet run -- --cli
+WifiAnalyzer --cli
 ```
 
 ### PDF + CSV Export
 
 ```bash
-dotnet run -- --cli --pdf report.pdf --csv networks.csv --quiet
+WifiAnalyzer --cli --pdf report.pdf --csv networks.csv --quiet
 ```
 
 ### Redacted Report
 
 ```bash
-dotnet run -- --cli --redacted --hide-ssids --pdf redacted.pdf
+WifiAnalyzer --cli --redacted --hide-ssids --pdf redacted.pdf
 ```
 
 ### Filtered Scan
 
 ```bash
-dotnet run -- --cli --match lobby --band 5 --security wpa3 --csv filtered.csv
+WifiAnalyzer --cli --match lobby --band 5 --security wpa3 --csv filtered.csv
 ```
 
 Published executables support the same arguments.
@@ -607,250 +607,21 @@ Arguments are validated before accessing the Wi-Fi radio.
 
 ---
 
-# 🧑‍💻 Development
+# 📦 Installation
 
-## Requirements
+Every download is self-contained. The .NET runtime is bundled, so nothing else needs to be installed.
 
-Wi-Fi Analyzer is built using:
+| Platform | Download | Notes |
+| --- | --- | --- |
+| **Windows x64** | [WifiAnalyzer-Windows-x64.exe](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.exe) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.zip) | Single executable. SmartScreen may ask for confirmation on first launch. |
+| **macOS, Apple silicon** | [Wi.Fi.Analyzer-Apple-Silicon.dmg](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.dmg) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.zip) | Developer ID signed and notarized. Drag to Applications. |
+| **macOS, Intel** | [Wi.Fi.Analyzer-Intel.dmg](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.zip) | Developer ID signed and notarized. Drag to Applications. |
+| **Linux x64** | [WifiAnalyzer-Linux-x64.tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-x64.tar.gz) | Extract and run `WifiAnalyzer`. Needs NetworkManager. |
+| **Linux ARM64** | [WifiAnalyzer-Linux-arm64.tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-arm64.tar.gz) | Extract and run `WifiAnalyzer`. Needs NetworkManager. |
 
-* .NET 8
-* Avalonia
-* Native/platform Wi-Fi interfaces
-* Platform-specific fallback mechanisms
-
-### macOS Development
-
-```bash
-brew install --cask dotnet-sdk
-dotnet restore --locked-mode
-dotnet run
-```
-
-### Privacy-Safe Hardware Test
-
-```bash
-dotnet run -- --scanner-smoke --require-network
-```
-
-The smoke test reports:
-
-* Scanner type
-* Number of networks
-* Connection state
-* Observed bands
-* Computer model
-* OS version/build
-* Architecture
-* Timestamp
-
-It intentionally does **not** output:
-
-* SSIDs
-* BSSIDs
-* IP addresses
-* Wi-Fi interface addresses
-* Hostname
-
----
-
-# 🧪 Testing
-
-Run the automated test suite with:
-
-```bash
-dotnet test WifiAnalyzer.Tests/WifiAnalyzer.Tests.csproj \
-  -c Release \
-  --no-restore
-```
-
-Tests cover areas including:
-
-* Scanner fixtures
-* Connected AP matching
-* Channel evidence
-* Export safety
-* Privacy/redaction
-* Settings
-* Diagnostics
-* System-information parsing
-* Report inclusion
-* CLI parsing
-* Headless exports
-
-Hosted CI performs locked restore, builds, and tests across:
-
-* Windows
-* Linux
-* macOS
-
-Real Wi-Fi radio scans are restricted to explicitly approved self-hosted runners.
-
-See:
-
-`docs/TEST_MATRIX.md`
-
----
-
-# 🪟 Windows Deployment
-
-Wi-Fi Analyzer can be published as a self-contained Windows application.
-
-The target computer does **not** require a separate .NET installation.
-
-### x64 Build
-
-```bash
-dotnet restore --locked-mode
-
-dotnet publish WifiAnalyzer.csproj \
-  -r win-x64 \
-  -c Release \
-  --no-restore \
-  --output artifacts/publish/win-x64/onefile \
-  /p:PublishSingleFile=true \
-  /p:SelfContained=true \
-  /p:IncludeNativeLibrariesForSelfExtract=true \
-  /p:IncludeAllContentForSelfExtract=true
-```
-
-### Version 2.6.3 Windows Deliverables
-
-```text
-dist/WifiAnalyzer-2.6.3-win-x64-self-contained.exe
-dist/WifiAnalyzer-2.6.3-win-x64-self-contained.zip
-
-Published on the release page as WifiAnalyzer-Windows-x64.exe and WifiAnalyzer-Windows-x64.zip.
-```
-
-Unsigned Windows builds may trigger Microsoft Defender SmartScreen.
-
-A trusted code-signing certificate is recommended for public distribution.
-
-Additional installer information is available in:
-
-`packaging/windows/README.md`
-
----
-
-# 🍎 macOS Deployment
-
-The macOS release is distributed as a self-contained `.app` bundle.
-
-The .NET runtime and dependencies are included inside the application, so users do not need to install .NET separately.
-
-### Build
-
-```bash
-dotnet publish WifiAnalyzer.csproj \
-  -r osx-arm64 \
-  -c Release \
-  --no-restore \
-  --output artifacts/publish/osx-arm64/nosf \
-  /p:PublishSingleFile=false \
-  /p:SelfContained=true
-```
-
-### Package
-
-```bash
-packaging/macos/make-app.sh \
-  osx-arm64 \
-  artifacts/publish/osx-arm64/nosf
-```
-
-Without production credentials, the packager applies an ad-hoc signature.
-
-For production distribution, configure:
-
-* `MAC_CODESIGN_IDENTITY`
-* `MAC_NOTARY_PROFILE`
-* `REQUIRE_SIGNING=true`
-* `REQUIRE_NOTARIZATION=true`
-
-The packaging workflow:
-
-1. Signs Mach-O runtime components.
-2. Applies hardened-runtime .NET entitlements.
-3. Signs the application.
-4. Submits the application to Apple.
-5. Staples the notarization ticket.
-6. Validates the completed bundle.
-
-Output:
-
-```text
-dist/Wi-Fi Analyzer.app
-dist/WifiAnalyzer-<version>-osx-arm64.zip
-```
+Asset names are stable across releases, so these links always fetch the newest build. Versioned history is on the [Releases](https://github.com/hov172/WinWiFiAnalyzer/releases) page.
 
 The most recently documented real-hardware macOS validation is **2.6.3 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
-
----
-
-# 🐧 Linux & Runtime Targets
-
-All supported targets can be generated with:
-
-```bash
-./publish-all.sh
-```
-
-Published artifacts are stored under:
-
-```text
-artifacts/publish/<rid>/{single,nosf}/
-```
-
-Supported runtime identifiers:
-
-* `win-x64`
-* `win-arm64`
-* `osx-x64`
-* `osx-arm64`
-* `linux-x64`
-* `linux-arm64`
-
----
-
-# 🤖 Release Automation
-
-GitHub Actions automate validation and release workflows.
-
-### CI
-
-`.github/workflows/ci.yml`
-
-Performs deterministic hosted validation.
-
-### Real Device Scanner
-
-`.github/workflows/real-device-scanner.yml`
-
-Runs explicitly authorized Wi-Fi radio tests on protected self-hosted runners.
-
-### macOS Beta
-
-`.github/workflows/macos-beta.yml`
-
-Produces an ARM64 Developer ID-signed and notarized beta from `main` using a protected environment.
-
-### Release
-
-`.github/workflows/release.yml`
-
-Builds supported runtime targets and Windows installers when a version tag exactly matches the version declared in `WifiAnalyzer.csproj`.
-
-For version **2.5.3**:
-Open Wifi will lower overall score please base the report on the other numbers.
-```text
-v2.5.3
-```
-
-See:
-
-`CHANGELOG.md`
-
-for the completed 2.5.3 changes.
 
 ---
 
@@ -859,20 +630,13 @@ for the completed 2.5.3 changes.
 |               |                       |
 | ------------- | --------------------- |
 | **Product**   | Wi-Fi Analyzer        |
-| **Version**   | 2.5.3                 |
+| **Version**   | 2.6.3                 |
 | **Publisher** | Ayala Solutions       |
 | **Framework** | Avalonia / .NET 8     |
 | **Platforms** | Windows, macOS, Linux |
 | **Windows**   | x64 / ARM64           |
 | **macOS**     | Intel / Apple Silicon |
 | **Linux**     | x64 / ARM64           |
-
-### Product Assets
-
-```text
-Windows Icon: packaging/windows/icon.ico
-macOS Icon:   packaging/macos/AppIcon.icns
-```
 
 ---
 
@@ -883,8 +647,7 @@ Additional documentation is available in the repository:
 * `docs/USER_GUIDE.md` — Usage, navigation, permissions, reports, and troubleshooting
 * `docs/PRIVACY.md` — Field-level privacy and redaction behavior
 * `docs/TEST_MATRIX.md` — Testing coverage and platform validation
-* `packaging/windows/README.md` — Windows installer and packaging information
-* `CHANGELOG.md` — Version history
+* [Releases](https://github.com/hov172/WinWiFiAnalyzer/releases) — Version history and release notes
 
 ---
 
