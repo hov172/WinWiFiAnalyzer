@@ -9,7 +9,10 @@ The first-run defaults are:
 - **Report detail:** Full
 
 Select **Scan networks**. The application displays progress in a dedicated
-status panel below the scan options. **Cancel** stops the active operation.
+status panel below the scan options. The panel reads **Scanning the Wi‑Fi
+environment** while networks are collected and **Measuring connection speed**
+while the speed test runs; the export prompt appears only after both finish.
+**Cancel** stops the active operation.
 
 Deep scan requests the fullest network identifiers the operating system allows.
 On macOS, Wi‑Fi Analyzer asks for Location Services permission the first time
@@ -44,6 +47,8 @@ Use Overview for the support summary:
 - Connected network and radio measurements
 - Number of observed networks and bands
 - Report privacy mode and capture time
+- Speed test download, upload, and latency, with probe quality or the reason
+  the test was unavailable (hidden when the speed test was skipped)
 - Computer name, model, OS version/build, architecture, IP, and Wi-Fi address
 - Recommended 2.4, 5, and observed 6 GHz channels
 - Recommendation confidence and rationale
@@ -144,6 +149,12 @@ Networks and Diagnostics intentionally share the same scan data:
 - Use **Diagnostics** when exact radio identifiers and measurements are needed.
 
 ## Export reports
+
+The speed test runs during the scan, so an export reuses that measurement
+instead of running it again. Throughput is measured over timed windows with
+several parallel connections against the nearest server, chosen by probe
+latency from Apple's network-quality endpoints, Cloudflare, or the custom
+endpoint in Settings.
 
 The speed test also measures packet loss and jitter using a burst of probes sent
 before the transfers, so the figures describe an otherwise idle link rather than

@@ -6,7 +6,7 @@ Wi-Fi Analyzer is a cross-platform desktop application designed to examine the l
 
 Built with **Avalonia and .NET 8**, the application provides a consistent diagnostic workflow across Windows, macOS, and Linux while using the best Wi-Fi information available from each operating system.
 
-**Current Version: 2.6.0**
+**Current Version: 2.6.3**
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -309,7 +309,7 @@ This information is incorporated into support reports where appropriate.
 
 # 🌐 Network Performance Testing
 
-The graphical application can automatically perform a network performance test following a scan.
+The graphical application runs a network performance test as part of every scan unless **Skip speed test** is checked. While it runs, the status panel reads **Measuring connection speed**. The results appear on the Report **Overview** tab as soon as the test finishes and are included in the text report, the PDF, and the connection-health score. An export reuses the scan's measurement rather than running the test again.
 
 Measurements can include:
 
@@ -318,6 +318,8 @@ Measurements can include:
 * Latency
 * Jitter
 * Packet loss
+
+Throughput is measured over timed windows with several TCP connections in parallel (six for download, four for upload). The connection ramp-up is excluded, upload chunks are sized adaptively, and only data the server acknowledged is counted. The nearest server is chosen by probe latency from Apple's network-quality endpoints, Cloudflare, or the custom endpoint configured in **Settings**.
 
 Deep scanning and speed testing are enabled by default in the graphical application.
 
@@ -366,7 +368,7 @@ The report identifies the source so a derived value is never presented as though
 
 1. Launch **Wi-Fi Analyzer**.
 2. Select **Scan networks**.
-3. Follow the scan-status panel.
+3. Follow the scan-status panel. It reads **Scanning the Wi-Fi environment** during the scan and **Measuring connection speed** during the speed test, then offers to export a PDF.
 4. Review nearby networks.
 5. Examine per-band congestion.
 6. Review channel recommendations.
@@ -411,6 +413,7 @@ Provides a high-level summary of:
 * Recommendations
 * Scan scope
 * Privacy mode
+* Speed test (download, upload, latency, and probe quality)
 * Diagnostic summary
 * Connection health
 * Channel recommendations
@@ -710,11 +713,11 @@ dotnet publish WifiAnalyzer.csproj \
   /p:IncludeAllContentForSelfExtract=true
 ```
 
-### Version 2.6.0 Windows Deliverables
+### Version 2.6.3 Windows Deliverables
 
 ```text
-dist/WifiAnalyzer-2.6.0-win-x64-self-contained.exe
-dist/WifiAnalyzer-2.6.0-win-x64-self-contained.zip
+dist/WifiAnalyzer-2.6.3-win-x64-self-contained.exe
+dist/WifiAnalyzer-2.6.3-win-x64-self-contained.zip
 
 Published on the release page as WifiAnalyzer-Windows-x64.exe and WifiAnalyzer-Windows-x64.zip.
 ```
@@ -780,7 +783,7 @@ dist/Wi-Fi Analyzer.app
 dist/WifiAnalyzer-<version>-osx-arm64.zip
 ```
 
-The most recently documented real-hardware macOS validation is **2.6.0 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
+The most recently documented real-hardware macOS validation is **2.6.3 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
 ---
 

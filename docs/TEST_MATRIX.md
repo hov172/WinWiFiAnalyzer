@@ -104,6 +104,8 @@ Perform these checks on a real desktop before promoting a release:
 | Health score with no speed test | Headline is labelled provisional and names the measured weight |
 | Link detail on Windows | Modulation is marked `[derived]`; noise floor states that Windows does not expose it |
 | Scan defaults | Deep scan enabled and Skip speed test unchecked |
+| Scan with speed test | Status panel reads `Measuring connection speed` after the network scan; the export prompt appears only after the test; Overview shows the Speed test card |
+| Scan with Skip speed test | No speed test runs; the Speed test card is hidden; export runs no test |
 | Scan status | Progress panel remains above the workspace and does not overlay lists |
 | Report navigation | Overview, Networks, and Diagnostics fit within the report workspace |
 | Connected AP | Matching BSSID row is first and marked `● Connected` |
