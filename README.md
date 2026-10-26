@@ -8,6 +8,8 @@ Wi-Fi Analyzer examines the local wireless environment, evaluates connection hea
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
+<a id="get-the-app"></a>
+
 ## 🌐 Get the right app for your platform
 
 Wi-Fi Analyzer is one of several Wi-Fi diagnostic tools built for IT support, Help Desk troubleshooting, network analysis, and end-user diagnostics. Each platform has its own implementation because Windows, macOS, Linux, and iOS expose different wireless information.
@@ -32,7 +34,7 @@ Wi-Fi Analyzer downloads are self-contained with the .NET runtime bundled. Windo
 
 The most recently documented real-hardware macOS validation is **2.6.4 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
-Screenshots of the macOS and iOS companion apps are in [Companion apps](#-companion-apps).
+Screenshots of the macOS and iOS companion apps are in [Companion apps](#companion-apps).
 
 ---
 
@@ -305,9 +307,11 @@ Arguments are validated before accessing the Wi-Fi radio.
 
 ---
 
+<a id="companion-apps"></a>
+
 ## 🖼️ Companion apps
 
-Links for every platform are in the table at the [top](#-get-the-right-app-for-your-platform).
+Links for every platform are in the table at the [top](#get-the-app).
 
 ### macOS: WiFi Diag Report
 
