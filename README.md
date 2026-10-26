@@ -667,9 +667,23 @@ https://github.com/hov172/WinWiFiAnalyzer
 
 https://github.com/hov172/WifDiagReport
 
+WiFi Diag Report is the native macOS companion: a dashboard with device and link details, a network scanner with a signal quality guide, and floor-plan coverage mapping with per-point signal readings.
+
+| Dashboard | Network Scanner |
+| --- | --- |
+| ![macOS dashboard showing connection, signal, speed and network counts with device and link details](images/macos-dashboard.png) | ![macOS network scanner showing the current connection, a signal quality guide and the available networks list](images/macos-scanner.png) |
+
+![macOS coverage mapping with measurement points placed on a two-floor plan and per-point signal readings](images/macos-coverage-map.png)
+
 ### iOS / iPadOS Beta
 
 https://testflight.apple.com/join/hDPGsHzd
+
+WifiDiag for iOS and iPadOS maps coverage on the device: scan the room with RoomPlan or import a floor plan, align it, then walk the space while the AR heatmap builds from live readings.
+
+| RoomPlan scan | Floor plan alignment | AR heatmap |
+| --- | --- | --- |
+| ![RoomPlan capture of a room outline on iOS](images/ios-roomplan-scan.png) | ![Aligning an imported floor plan on iOS](images/ios-floorplan-alignment.png) | ![AR heatmap overlaid on the floor with a Capture Sample button](images/ios-ar-heatmap.png) |
 
 ---
 
