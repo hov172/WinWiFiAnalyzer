@@ -8,19 +8,21 @@ Wi-Fi Analyzer examines the local wireless environment, evaluates connection hea
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
-## 📦 Download
+## 🌐 Get the right app for your platform
 
-Every download is self-contained. The .NET runtime is bundled, so nothing else needs to be installed.
+Wi-Fi Analyzer is one of several Wi-Fi diagnostic tools built for IT support, Help Desk troubleshooting, network analysis, and end-user diagnostics. Each platform has its own implementation because Windows, macOS, Linux, and iOS expose different wireless information.
 
-| Platform | Download | Notes |
+| Platform | App | Get it |
 | --- | --- | --- |
-| **Windows x64** | [WifiAnalyzer-Windows-x64.exe](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.exe) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.zip) | Single executable. SmartScreen may ask for confirmation on first launch. |
-| **macOS, Apple silicon** | [Wi.Fi.Analyzer-Apple-Silicon.dmg](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.dmg) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.zip) | Developer ID signed and notarized. Drag to Applications. |
-| **macOS, Intel** | [Wi.Fi.Analyzer-Intel.dmg](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) or [zip](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.zip) | Developer ID signed and notarized. Drag to Applications. |
-| **Linux x64** | [WifiAnalyzer-Linux-x64.tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-x64.tar.gz) | Extract and run `WifiAnalyzer`. Needs NetworkManager. |
-| **Linux ARM64** | [WifiAnalyzer-Linux-arm64.tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-arm64.tar.gz) | Extract and run `WifiAnalyzer`. Needs NetworkManager. |
+| 🪟 **Windows 10/11 x64** | Wi-Fi Analyzer (this repository) | [EXE](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.exe) · [ZIP](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Windows-x64.zip) |
+| 🍎 **macOS 11+, Apple silicon** | Wi-Fi Analyzer (this repository) | [DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.dmg) · [ZIP](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Apple-Silicon.zip) |
+| 🍎 **macOS 11+, Intel** | Wi-Fi Analyzer (this repository) | [DMG](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.dmg) · [ZIP](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/Wi.Fi.Analyzer-Intel.zip) |
+| 🐧 **Linux x64 / ARM64** | Wi-Fi Analyzer (this repository) | [x64 tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-x64.tar.gz) · [ARM64 tar.gz](https://github.com/hov172/WinWiFiAnalyzer/releases/latest/download/WifiAnalyzer-Linux-arm64.tar.gz) |
+| 🍎 **macOS, native with coverage mapping** | WiFi Diag Report | [GitHub](https://github.com/hov172/WifDiagReport) |
+| 📱 **iOS / iPadOS** | WifiDiag beta | [TestFlight](https://testflight.apple.com/join/hDPGsHzd) |
+| 🖥️ **PowerShell** | PS Wi-Fi Analyzer | [GitHub](https://github.com/hov172/PS_WI-FI_Analyzer) |
 
-Asset names are stable across releases, so these links always fetch the newest build. Versioned history is on the [Releases](https://github.com/hov172/WinWiFiAnalyzer/releases) page.
+Wi-Fi Analyzer downloads are self-contained with the .NET runtime bundled. Windows is a single executable and SmartScreen may ask for confirmation on first launch. macOS builds are Developer ID signed and notarized; drag to Applications. Linux needs NetworkManager; extract and run `WifiAnalyzer`. Asset names are stable across releases, so these links always fetch the newest build, and versioned history is on the [Releases](https://github.com/hov172/WinWiFiAnalyzer/releases) page.
 
 | Platform | Wi-Fi scanner | Requirements |
 | --- | --- | --- |
@@ -30,7 +32,7 @@ Asset names are stable across releases, so these links always fetch the newest b
 
 The most recently documented real-hardware macOS validation is **2.6.3 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
-Looking for the PowerShell script, the native macOS coverage mapper, or the iOS beta? See [Related apps](#-related-apps).
+Screenshots of the macOS and iOS companion apps are in [Companion apps](#-companion-apps).
 
 ---
 
@@ -303,16 +305,9 @@ Arguments are validated before accessing the Wi-Fi radio.
 
 ---
 
-## 🌐 Related apps
+## 🖼️ Companion apps
 
-Wi-Fi Analyzer is one of several Wi-Fi diagnostic tools built for IT support, Help Desk troubleshooting, network analysis, and end-user diagnostics. Different implementations exist because Windows, macOS, Linux, and iOS expose different wireless information and networking APIs. The common goal: collect useful Wi-Fi and network information, identify potential connectivity problems, and give IT support teams actionable diagnostic data.
-
-| Platform | Project | Access |
-| --- | --- | --- |
-| 🪟 🍎 🐧 **Windows / macOS / Linux** | Wi-Fi Analyzer (this repository) | [Download](#-download) |
-| 🖥️ **PowerShell** | PS Wi-Fi Analyzer | [GitHub](https://github.com/hov172/PS_WI-FI_Analyzer) |
-| 🍎 **macOS, native** | WiFi Diag Report with coverage mapping | [GitHub](https://github.com/hov172/WifDiagReport) |
-| 📱 **iOS / iPadOS** | WifiDiag beta | [TestFlight](https://testflight.apple.com/join/hDPGsHzd) |
+Links for every platform are in the table at the [top](#-get-the-right-app-for-your-platform).
 
 ### macOS: WiFi Diag Report
 
