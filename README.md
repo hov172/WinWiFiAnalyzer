@@ -6,7 +6,7 @@ Wi-Fi Analyzer is a cross-platform desktop application designed to examine the l
 
 Built with **Avalonia and .NET 8**, the application provides a consistent diagnostic workflow across Windows, macOS, and Linux while using the best Wi-Fi information available from each operating system.
 
-**Current Version: 2.6.3**
+**Current Version: 2.6.4**
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -630,7 +630,7 @@ The most recently documented real-hardware macOS validation is **2.6.3 on Apple 
 |               |                       |
 | ------------- | --------------------- |
 | **Product**   | Wi-Fi Analyzer        |
-| **Version**   | 2.6.3                 |
+| **Version**   | 2.6.4                 |
 | **Publisher** | Ayala Solutions       |
 | **Framework** | Avalonia / .NET 8     |
 | **Platforms** | Windows, macOS, Linux |
