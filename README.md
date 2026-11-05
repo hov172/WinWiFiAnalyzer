@@ -4,7 +4,7 @@
 
 Wi-Fi Analyzer examines the local wireless environment, evaluates connection health, identifies likely Wi-Fi problems, and generates structured reports an IT support team can act on. It is built with **Avalonia and .NET 8** and uses the best Wi-Fi information each operating system exposes.
 
-**Current version: 2.7.0** · [Release notes](https://github.com/hov172/WinWiFiAnalyzer/releases)
+**Current version: 2.7.1** · [Release notes](https://github.com/hov172/WinWiFiAnalyzer/releases)
 
 ![Networks tab showing the scan results table, filters, and per-band congestion charts](images/scan_Main-Networks.png)
 
@@ -32,7 +32,7 @@ Wi-Fi Analyzer downloads are self-contained with the .NET runtime bundled. Windo
 | **macOS 11+** | CoreWLAN with structured `system_profiler` fallback | Wi-Fi and Location Services |
 | **Linux** | `nmcli` with `iw` for additional link detail | NetworkManager and permission to query Wi-Fi |
 
-The most recently documented real-hardware macOS validation is **2.7.0 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
+The most recently documented real-hardware macOS validation is **2.7.1 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
 Screenshots of the macOS and iOS companion apps are in [Companion apps](#companion-apps).
 
@@ -212,6 +212,7 @@ Wi-Fi capabilities vary significantly between operating systems. Wi-Fi Analyzer 
 | MCS / Streams / Guard Interval | Derived from link rate | MCS reported; streams and guard interval derived | Reported by `iw` |
 | Router (default gateway) | Reported | Reported | Reported |
 | OS country code | Not exposed by OS | Reported | Not exposed by OS |
+| Hidden network names | Connected network, plus any saved non-broadcast profile | Connected network only | Connected network only |
 | Wi-Fi Standard | Beacon decoding | Reported/available platform detail | Reported/available platform detail |
 | Channel Utilization | Beacon decoding | Limited by platform | Limited by platform |
 | 802.11k/v/r | Beacon decoding | Limited | Limited |
@@ -304,7 +305,7 @@ Arguments are validated before accessing the Wi-Fi radio.
 | | |
 | --- | --- |
 | **Product** | Wi-Fi Analyzer |
-| **Version** | 2.7.0 |
+| **Version** | 2.7.1 |
 | **Publisher** | Ayala Solutions |
 | **Framework** | Avalonia / .NET 8 |
 | **Platforms** | Windows x64 / ARM64 · macOS Intel / Apple silicon · Linux x64 / ARM64 |
