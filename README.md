@@ -32,7 +32,7 @@ Wi-Fi Analyzer downloads are self-contained with the .NET runtime bundled. Windo
 | **macOS 11+** | CoreWLAN with structured `system_profiler` fallback | Wi-Fi and Location Services |
 | **Linux** | `nmcli` with `iw` for additional link detail | NetworkManager and permission to query Wi-Fi |
 
-The most recently documented real-hardware macOS validation is **2.7.1 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
+The most recently documented real-hardware macOS validation is **2.7.1 on Apple silicon running macOS 27.0**: Location Services grant, full SSID and BSSID identifiers, scans, the speed test running after the scan with its results on the Overview tab, access-point ranking, the diagnostic summary, and PDF export. On Windows, 2.7.1 was verified on Windows 11 Enterprise 24H2 x64: scans, PDF export, the router line, hidden-network labels, and real names for hidden networks with a saved profile. The directed switch needs a network with two visible radios and has not yet been exercised on real hardware.
 
 Screenshots of the macOS and iOS companion apps are in [Companion apps](#companion-apps).
 
