@@ -112,6 +112,8 @@ Scans nearby wireless networks across 2.4 GHz, 5 GHz, and observed 6 GHz network
 
 Collected information can include SSID, BSSID, RSSI, signal quality, channel, channel width, frequency, security, Wi-Fi band, connected AP status, Wi-Fi generation, channel utilization, and roaming capabilities.
 
+Wi-Fi generation is identified from Wi-Fi 4 through Wi-Fi 7 (802.11be), including 320 MHz channels and the EHT capabilities advertised in beacons, on Windows, macOS, and Linux.
+
 The application identifies the currently connected access point when the operating system provides enough information to determine its BSSID.
 
 ### 🩺 Diagnostic summary
