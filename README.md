@@ -1,4 +1,4 @@
-# 📡 Wi-Fi Analyzer
+# <img src="images/app-icon.png" width="48" align="top" alt=""> Wi-Fi Analyzer
 
 **Cross-platform Wi-Fi analysis, diagnostics, channel intelligence, and support-ready reporting for Windows, macOS, and Linux.**
 
